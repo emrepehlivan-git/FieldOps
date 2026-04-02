@@ -1,0 +1,6 @@
+@FieldOps.Host_HostAddress = http://localhost:5053
+
+GET {{FieldOps.Host_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

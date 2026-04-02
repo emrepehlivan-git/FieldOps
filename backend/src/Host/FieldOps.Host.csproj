@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BuildingBlocks\FieldOps.BuildingBlocks.csproj" />
+    <ProjectReference Include="..\Modules\RequestManagement\FieldOps.Modules.RequestManagement.csproj" />
+    <ProjectReference Include="..\Modules\WorkOrderManagement\FieldOps.Modules.WorkOrderManagement.csproj" />
+    <ProjectReference Include="..\Modules\Scheduling\FieldOps.Modules.Scheduling.csproj" />
+    <ProjectReference Include="..\Modules\SlaMonitoring\FieldOps.Modules.SlaMonitoring.csproj" />
+    <ProjectReference Include="..\Modules\IdentityAccess\FieldOps.Modules.IdentityAccess.csproj" />
+    <ProjectReference Include="..\Modules\Notification\FieldOps.Modules.Notification.csproj" />
+    <ProjectReference Include="..\Modules\Reporting\FieldOps.Modules.Reporting.csproj" />
+  </ItemGroup>
+
+</Project>
