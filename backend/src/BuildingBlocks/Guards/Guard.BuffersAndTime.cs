@@ -2,10 +2,10 @@ using System.Runtime.CompilerServices;
 
 namespace FieldOps.BuildingBlocks.Guards;
 
-public static partial class GuardAgainstExtensions
+public static partial class Guard
 {
     public static TimeSpan ThrowIfNegative(
-        this TimeSpan value,
+        TimeSpan value,
         [CallerArgumentExpression(nameof(value))] string? parameterName = null)
     {
         if (value < TimeSpan.Zero)
@@ -15,7 +15,7 @@ public static partial class GuardAgainstExtensions
     }
 
     public static TimeSpan ThrowIfZero(
-        this TimeSpan value,
+        TimeSpan value,
         [CallerArgumentExpression(nameof(value))] string? parameterName = null)
     {
         if (value == TimeSpan.Zero)
@@ -25,7 +25,7 @@ public static partial class GuardAgainstExtensions
     }
 
     public static TimeSpan ThrowIfNotInRange(
-        this TimeSpan value,
+        TimeSpan value,
         TimeSpan minInclusive,
         TimeSpan maxInclusive,
         [CallerArgumentExpression(nameof(value))] string? parameterName = null)
@@ -37,7 +37,7 @@ public static partial class GuardAgainstExtensions
     }
 
     public static ReadOnlyMemory<T> ThrowIfEmpty<T>(
-        this ReadOnlyMemory<T> memory,
+        ReadOnlyMemory<T> memory,
         [CallerArgumentExpression(nameof(memory))] string? parameterName = null)
     {
         if (memory.IsEmpty)
@@ -47,7 +47,7 @@ public static partial class GuardAgainstExtensions
     }
 
     public static Memory<T> ThrowIfEmpty<T>(
-        this Memory<T> memory,
+        Memory<T> memory,
         [CallerArgumentExpression(nameof(memory))] string? parameterName = null)
     {
         if (memory.IsEmpty)
@@ -57,7 +57,7 @@ public static partial class GuardAgainstExtensions
     }
 
     public static ReadOnlySpan<T> ThrowIfEmpty<T>(
-        this ReadOnlySpan<T> span,
+        ReadOnlySpan<T> span,
         [CallerArgumentExpression(nameof(span))] string? parameterName = null)
     {
         if (span.IsEmpty)
@@ -67,7 +67,7 @@ public static partial class GuardAgainstExtensions
     }
 
     public static Span<T> ThrowIfEmpty<T>(
-        this Span<T> span,
+        Span<T> span,
         [CallerArgumentExpression(nameof(span))] string? parameterName = null)
     {
         if (span.IsEmpty)
@@ -77,7 +77,7 @@ public static partial class GuardAgainstExtensions
     }
 
     public static int ThrowIfIndexOutOfRange(
-        this int index,
+        int index,
         int count,
         [CallerArgumentExpression(nameof(index))] string? parameterName = null)
     {
@@ -88,7 +88,7 @@ public static partial class GuardAgainstExtensions
     }
 
     public static T ThrowIfEqual<T>(
-        this T value,
+        T value,
         T forbidden,
         [CallerArgumentExpression(nameof(value))] string? parameterName = null,
         IEqualityComparer<T>? comparer = null)
@@ -101,7 +101,7 @@ public static partial class GuardAgainstExtensions
     }
 
     public static T ThrowIfNotEqual<T>(
-        this T value,
+        T value,
         T expected,
         [CallerArgumentExpression(nameof(value))] string? parameterName = null,
         IEqualityComparer<T>? comparer = null)

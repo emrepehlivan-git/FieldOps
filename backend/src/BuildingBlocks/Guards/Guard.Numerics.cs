@@ -3,10 +3,10 @@ using System.Runtime.CompilerServices;
 
 namespace FieldOps.BuildingBlocks.Guards;
 
-public static partial class GuardAgainstExtensions
+public static partial class Guard
 {
     public static T ThrowIfNegative<T>(
-        this T value,
+        T value,
         [CallerArgumentExpression(nameof(value))] string? parameterName = null)
         where T : INumberBase<T>
     {
@@ -17,7 +17,7 @@ public static partial class GuardAgainstExtensions
     }
 
     public static T ThrowIfNotPositive<T>(
-        this T value,
+        T value,
         [CallerArgumentExpression(nameof(value))] string? parameterName = null)
         where T : INumberBase<T>
     {
@@ -28,7 +28,7 @@ public static partial class GuardAgainstExtensions
     }
 
     public static T ThrowIfZero<T>(
-        this T value,
+        T value,
         [CallerArgumentExpression(nameof(value))] string? parameterName = null)
         where T : INumberBase<T>
     {
@@ -39,7 +39,7 @@ public static partial class GuardAgainstExtensions
     }
 
     public static T ThrowIfLessThan<T>(
-        this T value,
+        T value,
         T minInclusive,
         [CallerArgumentExpression(nameof(value))] string? parameterName = null)
         where T : IComparable<T>
@@ -51,7 +51,7 @@ public static partial class GuardAgainstExtensions
     }
 
     public static T ThrowIfLessOrEqual<T>(
-        this T value,
+        T value,
         T minExclusive,
         [CallerArgumentExpression(nameof(value))] string? parameterName = null)
         where T : IComparable<T>
@@ -63,7 +63,7 @@ public static partial class GuardAgainstExtensions
     }
 
     public static T ThrowIfGreaterThan<T>(
-        this T value,
+        T value,
         T maxInclusive,
         [CallerArgumentExpression(nameof(value))] string? parameterName = null)
         where T : IComparable<T>
@@ -75,7 +75,7 @@ public static partial class GuardAgainstExtensions
     }
 
     public static T ThrowIfGreaterOrEqual<T>(
-        this T value,
+        T value,
         T maxExclusive,
         [CallerArgumentExpression(nameof(value))] string? parameterName = null)
         where T : IComparable<T>
@@ -87,7 +87,7 @@ public static partial class GuardAgainstExtensions
     }
 
     public static T ThrowIfNotInRange<T>(
-        this T value,
+        T value,
         T minInclusive,
         T maxInclusive,
         [CallerArgumentExpression(nameof(value))] string? parameterName = null)
@@ -100,7 +100,7 @@ public static partial class GuardAgainstExtensions
     }
 
     public static int ThrowIfNotPowerOfTwo(
-        this int value,
+        int value,
         [CallerArgumentExpression(nameof(value))] string? parameterName = null)
     {
         if (value <= 0 || (value & (value - 1)) != 0)

@@ -3,10 +3,10 @@ using System.Runtime.CompilerServices;
 
 namespace FieldOps.BuildingBlocks.Guards;
 
-public static partial class GuardAgainstExtensions
+public static partial class Guard
 {
     public static string ThrowIfNullOrEmpty(
-        [NotNull] this string? value,
+        [NotNull] string? value,
         [CallerArgumentExpression(nameof(value))] string? parameterName = null)
     {
         ArgumentException.ThrowIfNullOrEmpty(value, parameterName);
@@ -14,7 +14,7 @@ public static partial class GuardAgainstExtensions
     }
 
     public static string ThrowIfNullOrWhiteSpace(
-        [NotNull] this string? value,
+        [NotNull] string? value,
         [CallerArgumentExpression(nameof(value))] string? parameterName = null)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(value, parameterName);
@@ -22,7 +22,7 @@ public static partial class GuardAgainstExtensions
     }
 
     public static string ThrowIfShorterThan(
-        this string value,
+        string value,
         int minLength,
         [CallerArgumentExpression(nameof(value))] string? parameterName = null)
     {
@@ -34,7 +34,7 @@ public static partial class GuardAgainstExtensions
     }
 
     public static string ThrowIfLongerThan(
-        this string value,
+        string value,
         int maxLength,
         [CallerArgumentExpression(nameof(value))] string? parameterName = null)
     {
@@ -46,7 +46,7 @@ public static partial class GuardAgainstExtensions
     }
 
     public static string ThrowIfLengthNotInRange(
-        this string value,
+        string value,
         int minLength,
         int maxLength,
         [CallerArgumentExpression(nameof(value))] string? parameterName = null)

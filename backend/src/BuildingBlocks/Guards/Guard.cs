@@ -3,29 +3,29 @@ using System.Runtime.CompilerServices;
 
 namespace FieldOps.BuildingBlocks.Guards;
 
-public static partial class GuardAgainstExtensions
+public static partial class Guard
 {
     public static T ThrowIfNull<T>(
-        [NotNull] this T? value,
+        [NotNull] T? value,
         [CallerArgumentExpression(nameof(value))] string? parameterName = null)
         where T : class =>
         value ?? throw new ArgumentNullException(parameterName, "Value cannot be null.");
 
     public static T ThrowIfNull<T>(
-        [NotNull] this T? value,
+        [NotNull] T? value,
         string message,
         [CallerArgumentExpression(nameof(value))] string? parameterName = null)
         where T : class =>
         value ?? throw new ArgumentNullException(parameterName, message);
 
     public static T ThrowIfNull<T>(
-        [NotNull] this T? value,
+        [NotNull] T? value,
         [CallerArgumentExpression(nameof(value))] string? parameterName = null)
         where T : struct =>
         value ?? throw new ArgumentNullException(parameterName, "Nullable value must have a value.");
 
     public static T ThrowIfDefault<T>(
-        this T value,
+        T value,
         [CallerArgumentExpression(nameof(value))] string? parameterName = null)
         where T : struct
     {
@@ -36,7 +36,7 @@ public static partial class GuardAgainstExtensions
     }
 
     public static T ThrowIfDefault<T>(
-        this T value,
+        T value,
         string message,
         [CallerArgumentExpression(nameof(value))] string? parameterName = null)
         where T : struct
@@ -48,7 +48,7 @@ public static partial class GuardAgainstExtensions
     }
 
     public static Guid ThrowIfEmpty(
-        this Guid value,
+        Guid value,
         [CallerArgumentExpression(nameof(value))] string? parameterName = null)
     {
         if (value == Guid.Empty)
@@ -58,7 +58,7 @@ public static partial class GuardAgainstExtensions
     }
 
     public static T ThrowIfFalse<T>(
-        this T value,
+        T value,
         bool condition,
         string message,
         [CallerArgumentExpression(nameof(value))] string? parameterName = null)
@@ -70,7 +70,7 @@ public static partial class GuardAgainstExtensions
     }
 
     public static void ThrowIfFalse(
-        this bool condition,
+        bool condition,
         string message,
         [CallerArgumentExpression(nameof(condition))] string? parameterName = null)
     {
@@ -79,7 +79,7 @@ public static partial class GuardAgainstExtensions
     }
 
     public static void ThrowIfTrue(
-        this bool condition,
+        bool condition,
         string message,
         [CallerArgumentExpression(nameof(condition))] string? parameterName = null)
     {
@@ -88,7 +88,7 @@ public static partial class GuardAgainstExtensions
     }
 
     public static TEnum ThrowIfNotDefined<TEnum>(
-        this TEnum value,
+        TEnum value,
         [CallerArgumentExpression(nameof(value))] string? parameterName = null)
         where TEnum : struct, Enum
     {
@@ -99,7 +99,7 @@ public static partial class GuardAgainstExtensions
     }
 
     public static Uri ThrowIfNullOrNotAbsolute(
-        [NotNull] this Uri? uri,
+        [NotNull] Uri? uri,
         [CallerArgumentExpression(nameof(uri))] string? parameterName = null)
     {
         ArgumentNullException.ThrowIfNull(uri, parameterName);
@@ -110,7 +110,7 @@ public static partial class GuardAgainstExtensions
     }
 
     public static DateTime ThrowIfKindNot(
-        this DateTime value,
+        DateTime value,
         DateTimeKind requiredKind,
         [CallerArgumentExpression(nameof(value))] string? parameterName = null)
     {
@@ -121,7 +121,7 @@ public static partial class GuardAgainstExtensions
     }
 
     public static DateTimeOffset ThrowIfOffsetNotZero(
-        this DateTimeOffset value,
+        DateTimeOffset value,
         [CallerArgumentExpression(nameof(value))] string? parameterName = null)
     {
         if (value.Offset != TimeSpan.Zero)
@@ -131,7 +131,7 @@ public static partial class GuardAgainstExtensions
     }
 
     public static TExpected ThrowIfNotOfType<TExpected>(
-        this object? value,
+        object? value,
         [CallerArgumentExpression(nameof(value))] string? parameterName = null)
         where TExpected : class
     {
@@ -142,7 +142,7 @@ public static partial class GuardAgainstExtensions
     }
 
     public static object ThrowIfOfType<TForbidden>(
-        this object? value,
+        object? value,
         [CallerArgumentExpression(nameof(value))] string? parameterName = null)
     {
         if (value is TForbidden)

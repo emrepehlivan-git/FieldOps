@@ -1,4 +1,5 @@
 using System.Collections.Immutable;
+using FieldOps.BuildingBlocks.Guards;
 
 namespace FieldOps.BuildingBlocks.Results;
 
@@ -16,15 +17,14 @@ public sealed record Result<T>(bool IsSuccess, T? SuccessValue, ImmutableArray<E
     public static Result<T> Success(T value) => new(true, value, default);
 
     public static Result<T> Failure(Error error) =>
-        new(false, default, ImmutableArray.Create(error));
+        new(false, default, [error]);
 
     public static Result<T> Failure(IReadOnlyList<Error> errors)
     {
-        ArgumentNullException.ThrowIfNull(errors);
-        if (errors.Count == 0)
-            throw new ArgumentException("At least one error is required.", nameof(errors));
+        Guard.ThrowIfNull(errors);
+        Guard.ThrowIfCountNotInRange(errors, 1, int.MaxValue);
 
-        return new(false, default, ImmutableArray.Create(errors.ToArray()));
+        return new(false, default, [.. errors]);
     }
 
     public static implicit operator Result<T>(T value) => Success(value);

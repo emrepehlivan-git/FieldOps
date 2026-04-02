@@ -5,10 +5,10 @@ using System.Runtime.CompilerServices;
 
 namespace FieldOps.BuildingBlocks.Guards;
 
-public static partial class GuardAgainstExtensions
+public static partial class Guard
 {
     public static T[] ThrowIfNullOrEmpty<T>(
-        [NotNull] this T[]? array,
+        [NotNull] T[]? array,
         [CallerArgumentExpression(nameof(array))] string? parameterName = null)
     {
         ArgumentNullException.ThrowIfNull(array, parameterName);
@@ -19,7 +19,7 @@ public static partial class GuardAgainstExtensions
     }
 
     public static IReadOnlyList<T> ThrowIfNullOrEmpty<T>(
-        [NotNull] this IReadOnlyList<T>? list,
+        [NotNull] IReadOnlyList<T>? list,
         [CallerArgumentExpression(nameof(list))] string? parameterName = null)
     {
         ArgumentNullException.ThrowIfNull(list, parameterName);
@@ -30,7 +30,7 @@ public static partial class GuardAgainstExtensions
     }
 
     public static ICollection<T> ThrowIfNullOrEmpty<T>(
-        [NotNull] this ICollection<T>? collection,
+        [NotNull] ICollection<T>? collection,
         [CallerArgumentExpression(nameof(collection))] string? parameterName = null)
     {
         ArgumentNullException.ThrowIfNull(collection, parameterName);
@@ -41,7 +41,7 @@ public static partial class GuardAgainstExtensions
     }
 
     public static IEnumerable<T> ThrowIfNullOrEmpty<T>(
-        [NotNull] this IEnumerable<T>? source,
+        [NotNull] IEnumerable<T>? source,
         [CallerArgumentExpression(nameof(source))] string? parameterName = null)
     {
         ArgumentNullException.ThrowIfNull(source, parameterName);
@@ -63,7 +63,7 @@ public static partial class GuardAgainstExtensions
     }
 
     public static IReadOnlyList<T> ThrowIfCountNotInRange<T>(
-        this IReadOnlyList<T> list,
+        IReadOnlyList<T> list,
         int minCount,
         int maxCount,
         [CallerArgumentExpression(nameof(list))] string? parameterName = null)
@@ -80,7 +80,7 @@ public static partial class GuardAgainstExtensions
     }
 
     public static ICollection<T> ThrowIfCountNotInRange<T>(
-        this ICollection<T> collection,
+        ICollection<T> collection,
         int minCount,
         int maxCount,
         [CallerArgumentExpression(nameof(collection))] string? parameterName = null)
@@ -97,7 +97,7 @@ public static partial class GuardAgainstExtensions
     }
 
     public static ImmutableArray<T> ThrowIfNullOrEmpty<T>(
-        this ImmutableArray<T> array,
+        ImmutableArray<T> array,
         [CallerArgumentExpression(nameof(array))] string? parameterName = null)
     {
         if (array.IsDefault)

@@ -11,7 +11,7 @@ public abstract class RepositoryBase<TEntity, TId> : ReadOnlyRepositoryBase<TEnt
 
     public virtual async Task AddRangeAsync(IEnumerable<TEntity> entities, CancellationToken cancellationToken = default)
     {
-        entities.ThrowIfNull();
+        Guard.ThrowIfNull(entities);
         foreach (var entity in entities)
             await AddAsync(entity, cancellationToken).ConfigureAwait(false);
     }
@@ -22,7 +22,7 @@ public abstract class RepositoryBase<TEntity, TId> : ReadOnlyRepositoryBase<TEnt
 
     public virtual void RemoveRange(IEnumerable<TEntity> entities)
     {
-        entities.ThrowIfNull();
+        Guard.ThrowIfNull(entities);
         foreach (var entity in entities)
             Remove(entity);
     }

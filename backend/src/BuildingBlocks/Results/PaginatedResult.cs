@@ -1,3 +1,5 @@
+using FieldOps.BuildingBlocks.Guards;
+
 namespace FieldOps.BuildingBlocks.Results;
 
 public sealed record PaginatedResult<T>
@@ -12,10 +14,9 @@ public sealed record PaginatedResult<T>
 
     public PaginatedResult(IReadOnlyList<T> items, int pageNumber, int pageSize, long totalCount)
     {
-        ArgumentOutOfRangeException.ThrowIfLessThan(pageNumber, 1);
-        ArgumentOutOfRangeException.ThrowIfLessThan(pageSize, 1);
-        if (totalCount < 0)
-            throw new ArgumentOutOfRangeException(nameof(totalCount));
+        Guard.ThrowIfLessThan(pageNumber, 1);
+        Guard.ThrowIfLessThan(pageSize, 1);
+        Guard.ThrowIfNegative(totalCount);
 
         Items = items;
         PageNumber = pageNumber;

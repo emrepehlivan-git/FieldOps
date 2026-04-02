@@ -11,7 +11,7 @@ public static class ServiceCollectionExtensions
         this IServiceCollection services,
         params Assembly[] assemblies)
     {
-        assemblies.ThrowIfNullOrEmpty();
+        Guard.ThrowIfNullOrEmpty(assemblies);
         services.Scan(scan => scan
             .FromAssemblies(assemblies)
             .AddClasses(c => c.Where(MarkerRegistration.MatchesMarker<ITransientDependency>))
