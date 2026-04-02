@@ -8,10 +8,4 @@
     <PackageReference Include="Scrutor" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Abstractions\" />
-    <Folder Include="Messaging\" />
-    <Folder Include="Persistence\" />
-  </ItemGroup>
-
 </Project>
