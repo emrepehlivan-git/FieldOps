@@ -85,3 +85,5 @@ docker-data/
 *.log
 *.bak
 *.orig
+
+/prd.md
