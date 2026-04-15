@@ -10,13 +10,13 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BuildingBlocks\FieldOps.BuildingBlocks.csproj" />
-    <ProjectReference Include="..\Modules\RequestManagement\FieldOps.Modules.RequestManagement.csproj" />
-    <ProjectReference Include="..\Modules\WorkOrderManagement\FieldOps.Modules.WorkOrderManagement.csproj" />
-    <ProjectReference Include="..\Modules\Scheduling\FieldOps.Modules.Scheduling.csproj" />
-    <ProjectReference Include="..\Modules\SlaMonitoring\FieldOps.Modules.SlaMonitoring.csproj" />
-    <ProjectReference Include="..\Modules\IdentityAccess\FieldOps.Modules.IdentityAccess.csproj" />
-    <ProjectReference Include="..\Modules\Notification\FieldOps.Modules.Notification.csproj" />
-    <ProjectReference Include="..\Modules\Reporting\FieldOps.Modules.Reporting.csproj" />
+    <ProjectReference Include="..\Modules\RequestManagement\Api\FieldOps.Modules.RequestManagement.Api.csproj" />
+    <ProjectReference Include="..\Modules\WorkOrderManagement\Api\FieldOps.Modules.WorkOrderManagement.Api.csproj" />
+    <ProjectReference Include="..\Modules\Scheduling\Api\FieldOps.Modules.Scheduling.Api.csproj" />
+    <ProjectReference Include="..\Modules\SlaMonitoring\Api\FieldOps.Modules.SlaMonitoring.Api.csproj" />
+    <ProjectReference Include="..\Modules\IdentityAccess\Api\FieldOps.Modules.IdentityAccess.Api.csproj" />
+    <ProjectReference Include="..\Modules\Notification\Api\FieldOps.Modules.Notification.Api.csproj" />
+    <ProjectReference Include="..\Modules\Reporting\Api\FieldOps.Modules.Reporting.Api.csproj" />
   </ItemGroup>
 
 </Project>
