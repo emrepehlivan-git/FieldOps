@@ -3,7 +3,9 @@ using FieldOps.BuildingBlocks.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddMarkerRegistrations(Assembly.GetExecutingAssembly());
+builder.Services.AddMarkerRegistrations(
+    Assembly.GetExecutingAssembly(),
+    typeof(FieldOps.BuildingBlocks.DependencyInjection.ServiceCollectionExtensions).Assembly);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
